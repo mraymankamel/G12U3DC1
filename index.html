@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Theme Name: Obsidian Gold (Titanium V.Max V2 - Masterpiece Edition) -->
+    <title>🌟 التحدي الأكبر 🚀</title>
+
+    <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
+    <meta property="og:description" content="تحدي استثنائي مصمم لقياس تركيزك الحقيقي وقوة ملاحظتك تحت الضغط. هل تقبل التحدي؟">
+    <meta property="og:image" content="https://dummyimage.com/1200x630/F8FAFC/D97706.png&text=Elite+Challenge">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        /* ========================================================
+           💎 UI THEME: Obsidian Gold (Titanium V.Max V2)
+           ======================================================== */
+        :root {
+            --bg-dark: #0F172A; 
+            --glass-bg: rgba(255, 255, 255, 0.96);
+            --glass-border: rgba(217, 119, 6, 0.3); 
+            --text-main: #0F172A; 
+            --text-muted: #64748B; 
+            --q-font-size: 22px; 
+            --error-color: #E11D48; 
+            --success-color: #059669; 
+            --accent: #D97706; 
+            --accent-glow: rgba(217, 119, 6, 0.25);
+        }
+
+        body.theme-2 { --accent: #2563EB; --accent-glow: rgba(37, 99, 235, 0.25); } 
+        body.theme-3 { --accent: #7C3AED; --accent-glow: rgba(124, 58, 237, 0.25); } 
+        body.theme-4 { --accent: #059669; --accent-glow: rgba(5, 150, 105, 0.25); } 
+        body.theme-5 { --accent: #4F46E5; --accent-glow: rgba(79, 70, 229, 0.25); } 
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { -webkit-user-select: none; user-select: none; font-family: 'Cairo', sans-serif; background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px 10px; overflow-x: hidden; }
+        input { -webkit-user-select: auto !important; user-select: auto !important; pointer-events: auto !important;}
+        .review-item *, .explanation-box *, .print-options-grid * { -webkit-user-select: text; user-select: text; }
+
+        body, .glass-panel, .accent-text, .btn, .timer-box, .badge-award, .bg-orb, .vip-phone, header img { transition: 0.5s ease; }
+
+        .bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 35px 35px; }
+        .bg-orb { position: fixed; top: -20%; left: 50%; transform: translateX(-50%); width: 80vw; height: 80vw; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%); z-index: 0; filter: blur(120px); pointer-events: none; }
+
+        .main-container { width: 100%; max-width: 850px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(40px); border-radius: 28px; border: 1px solid var(--glass-border); box-shadow: 0 25px 60px -12px rgba(0,0,0,0.3); display: flex; flex-direction: column; position: relative; z-index: 10; }
+
+        /* Header Setup */
+        header { padding: 75px 20px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.05); position: relative; }
+        
+        .top-bar-controls { position: absolute; top: 20px; left: 0; width: 100%; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; z-index: 20; direction: ltr !important; }
+        .left-controls { display: flex; align-items: center; gap: 8px; }
+        .right-controls { display: flex; align-items: center; gap: 8px; }
+        
+        header img { width: 115px; height: 115px; object-fit: contain; background-color: #FFFFFF !important; padding: 6px; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 10px 25px var(--accent-glow); cursor: pointer; flex-shrink: 0; aspect-ratio: 1/1; }
+        header h1 { font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 900; margin: 10px 0 0; direction: ltr;}
+        header .job-title { font-size: 15px; font-weight: 800; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; direction: ltr;}
+        header .slogan { font-family: 'Outfit', sans-serif; font-size: 16px; font-style: italic; color: var(--accent); margin: 5px 0 10px 0; direction: ltr; unicode-bidi: isolate;}
+        .vip-phone { background: linear-gradient(135deg, var(--accent), #B45309); color: #FFF; font-family: 'Outfit', sans-serif; padding: 8px 28px; border-radius: 30px; font-weight: 900; font-size: 16px; letter-spacing: 2px; box-shadow: 0 5px 20px var(--accent-glow); direction: ltr; }
+
+        .timer-box { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 12px; padding: 0 16px; height: 44px; display: flex; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .time-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; animation: blink 1s infinite; box-shadow: 0 0 10px var(--accent);}
+        .timer-box.danger { color: var(--error-color); border-color: var(--error-color); box-shadow: 0 0 15px rgba(225,29,72,0.15);}
+        .timer-box.danger .time-dot { background: var(--error-color); box-shadow: 0 0 10px var(--error-color);}
+        .hidden-timer { color: transparent !important; box-shadow: none;}
+        
+        .icon-btn { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 12px; width: 44px; height: 44px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; outline: none; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); background: #F8FAFC; box-shadow: 0 5px 15px var(--accent-glow);}
+
+        /* Smart Cheers */
+        .cheer-wrapper { position: fixed; top: -120px; right: 20px; z-index: 99999; pointer-events: none; transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .cheer-wrapper.show { top: 20px; }
+        .cheer-bubble { background: #FFFFFF; backdrop-filter: blur(20px); border-radius: 16px; padding: 18px 24px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; border: 1px solid rgba(0,0,0,0.05); border-right: 5px solid var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.08); direction: rtl; }
+        .cheer-bubble img { grid-column: 2; grid-row: 1 / span 3; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent); background: #FFFFFF !important; padding: 4px; object-fit: contain; aspect-ratio: 1/1; }
+        .cheer-en { font-family:'Outfit', sans-serif; font-size:15px; font-weight:900; direction:ltr; text-align:left;}
+        .cheer-separator { grid-column: 1; width: 100%; height: 1px; background: rgba(0,0,0,0.05); border-bottom: 1px dashed rgba(0,0,0,0.05); margin: 6px 0;}
+        .cheer-ar { font-family:'Cairo', sans-serif; font-size:14px; font-weight:800; color:var(--accent); direction:rtl; text-align:right;}
+
+        @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
+
+        .content-body { padding: 40px 30px; flex: 1; position: relative;}
+        #start-screen { text-align: center; }
+        .welcome-card { background: #FFFFFF; border-radius: 20px; padding: 45px 25px; margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .welcome-card h3 { font-size: 26px; font-weight: 900; color: var(--accent); margin-bottom: 20px;}
+        
+        .ta-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .ta-btn { background: #FFFFFF; color: var(--text-muted); border: 2px solid #E2E8F0; padding: 16px; font-size: 16px; border-radius: 14px; font-weight: 800; font-family: 'Outfit', 'Cairo'; cursor: pointer; transition: 0.3s;}
+        .ta-btn.active { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); box-shadow: 0 5px 15px var(--accent-glow); transform: scale(1.02); }
+
+        .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: nowrap; overflow-x: auto; padding: 15px 5px 25px 5px;}
+        .avatar-option { font-size: 34px; padding: 14px 20px; background: #FFFFFF; border-radius: 16px; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; flex-shrink: 0;}
+        .avatar-option.selected { background: #F8FAFC; border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); transform: scale(1.1) translateY(-5px);}
+
+        .input-group input { width: 100%; padding: 22px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.08); background: #FFFFFF; color: var(--accent); font-size: 18px; outline: none; margin-bottom: 30px; font-weight: 800; text-align: center; box-shadow: inset 0 2px 8px rgba(0,0,0,0.02); transition: 0.3s; }
+        .input-group input:focus { border-color: var(--accent); box-shadow: inset 0 2px 8px rgba(0,0,0,0.02), 0 0 20px var(--accent-glow); }
+
+        #quiz-screen, #result-screen { display: none; }
+        
+        .hud-progress-wrapper { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; padding: 20px 24px 30px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); position: relative; }
+        .hud-progress-wrapper::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; height: 100%; background: var(--accent); border-radius: 0 16px 16px 0; }
+        .hud-stats { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; direction: rtl; flex-wrap: wrap; gap: 10px; }
+        .hud-student { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 17px;}
+        .hud-student .avatar-ring { background: #FFFFFF; border: 2px solid var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px var(--accent-glow); font-size: 24px; flex-shrink: 0;}
+        .hud-counter { font-family: 'Outfit'; font-weight: 900; font-size: 18px; color: var(--accent); direction: ltr;}
+        .hud-bar-container { margin-top: 30px; height: 8px; background: #F1F5F9; border-radius: 4px; position: relative; direction: ltr; margin-right: 25px; margin-left: 25px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.04); }
+        .hud-bar-fill { position: relative; height: 100%; background: linear-gradient(90deg, var(--accent), #FBBF24); width: 0%; transition: width 0.6s ease; border-radius: 4px;}
+        .hud-avatar-runner { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 5px 15px var(--accent-glow); flex-shrink: 0; z-index: 5; transition: 0.6s ease;}
+
+        .station-card { background: #FFFFFF; padding: 40px 30px; border-radius: 20px; margin-bottom: 35px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        .question-text { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; direction: ltr; width: 100%; }
+        .question-text-wrapper { flex: 1; font-family: 'Outfit'; font-size: var(--q-font-size); font-weight: 800; line-height: 1.7; transition: 0.3s; width: 100%; display: block; text-align: left;}
+        
+        .options-list { display: flex; flex-direction: column; gap: 18px; direction: ltr; }
+        .option-item { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 5px solid #94A3B8; border-radius: 14px; padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 20px; transition: 0.2s; }
+        .option-item.selected { background: #FFFFFF; border-color: var(--accent); border-left: 6px solid var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.04); }
+        .opt-letter { background: #FFFFFF; color: var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-weight: 900; font-size: 18px; border: 1px solid rgba(0,0,0,0.05); flex-shrink:0;}
+        .option-item.selected .opt-letter { background: var(--accent); color: #FFFFFF; }
+        .opt-text { font-family: 'Outfit'; font-weight: 600; font-size: 19px; }
+
+        .action-btns { display: flex; flex-direction: row-reverse; justify-content: space-between; gap: 20px; direction: ltr;}
+        .btn { padding: 20px 30px; border-radius: 16px; font-weight: 900; font-size: 17px; border: 1px solid var(--accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Outfit', 'Cairo'; text-transform: uppercase; transition: 0.3s; }
+        .btn-outline { background: transparent; color: var(--accent); }
+        .btn-outline:hover:not(:disabled) { background: var(--accent); color: #FFFFFF; box-shadow: 0 10px 25px var(--accent-glow);}
+        .btn-prev { min-width: 140px; border-color: #E2E8F0; color: var(--text-muted);}
+        .btn-prev:hover:not(:disabled) { border-color: var(--text-main); color: var(--text-main); background:#F8FAFC;}
+        .btn-prev:disabled { opacity: 0.3; cursor: not-allowed;}
+        .btn-solid { background: linear-gradient(135deg, var(--accent), #B45309); color: #FFFFFF; box-shadow: 0 10px 30px var(--accent-glow); flex: 1; font-size:19px;}
+        .btn-solid:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--accent-glow);}
+
+        .score-card { background: #FFFFFF; border-radius: 24px; padding: 50px 25px; text-align: center; margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.03);}
+        .score-circle { width: 240px; height: 240px; border-radius: 50%; margin: 0 auto 35px; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 65px; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, var(--accent), #FBBF24); border: 12px solid #FFFFFF; box-shadow: 0 15px 40px var(--accent-glow), 0 0 0 5px var(--accent); direction: ltr;}
+        
+        #student-display-name { font-size: 24px; font-weight: 900; color: var(--text-muted); margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .result-avatar { font-size: 28px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;}
+        
+        .scratch-container { position: relative; display: inline-block; margin-top: 10px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);}
+        .badge-award { display: inline-block; background: linear-gradient(135deg, var(--accent), #B45309); color: #FFFFFF; padding: 24px 40px; font-weight: 900; font-size: 24px; min-width: 320px; min-height: 85px; font-family: 'Outfit', 'Cairo'; }
+        #scratch-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 5; }
+
+        .result-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 50px;}
+        .result-actions .btn { width: 100%; font-size: 15px; padding: 18px; border-radius: 14px;}
+        .btn-full { grid-column: span 2; }
+        .btn-whatsapp { background: #25D366; color: #fff; border-color: #25D366; }
+
+        .review-item { background: #FFFFFF; border-radius: 16px; padding: 30px; margin-bottom: 25px; text-align: left; direction: ltr; border: 1px solid #E2E8F0; box-shadow: 0 5px 20px rgba(0,0,0,0.02); page-break-inside: avoid;}
+        .review-item.is-correct { border-left: 6px solid var(--success-color); }
+        .review-item.is-wrong { border-left: 6px solid var(--error-color); }
+        .explanation-box { background: #F8FAFC; border-radius: 12px; padding: 22px; margin-top: 20px; border-right: 4px solid var(--accent); display: flex; flex-direction: column; gap: 16px; border: 1px solid rgba(0,0,0,0.02);}
+        .exp-en { direction: ltr; text-align: left; color: var(--text-muted); font-family: 'Outfit'; font-size: 16px; font-weight: 600; line-height: 1.6; }
+        .exp-separator { width: 100%; height: 1px; background: #E2E8F0; border-bottom: 1px dashed #CBD5E1; }
+        .exp-ar { direction: rtl; text-align: right; color: var(--text-main); font-weight: 700; font-size: 16px; line-height: 1.7; }
+        
+        #cheat-modal, #pause-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.6); z-index: 999999; align-items: center; justify-content: center; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+        .cheat-content { background: #FFFFFF; padding: 50px; border-radius: 24px; text-align: center; max-width: 90%; width: 500px; border: 2px solid var(--error-color); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+
+        /* ========================================================
+           🖨️ PRINT MASTER ENGINE V.MAX (A4, Header, Footer, Watermark)
+           ======================================================== */
+        #print-container { display: none; }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background: #fff !important; color: #000 !important; margin: 0; padding: 0; }
+            .no-print, #app-container, .bg-orb, .bg-grid { display: none !important; }
+            
+            #print-container { display: block !important; width: 100%; max-width: 210mm; margin: 0 auto; background: transparent; }
+            
+            table.print-table { width: 100%; border-collapse: collapse; }
+            thead.print-thead { display: table-header-group; }
+            tfoot.print-tfoot { display: table-footer-group; }
+            tbody.print-tbody { display: table-row-group; }
+            
+            .header-content { display: flex; align-items: center; gap: 15px; padding: 15mm 15mm 5mm; border-bottom: 2px solid #000; margin-bottom: 5mm; justify-content: flex-start; text-align: left; direction: ltr; }
+            .header-content img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; }
+            .header-content div strong { font-family: 'Outfit'; font-size: 26px; font-weight: 900; display: block; color: #000; line-height: 1.2; text-align: left; }
+            .header-content div span { font-family: 'Outfit'; font-size: 14px; color: #333; text-transform: uppercase; letter-spacing: 1px; text-align: left; display: block;}
+
+            .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 5mm 15mm 15mm; border-top: 2px solid #000; font-family: 'Outfit'; font-weight: bold; font-size: 14px; color: #000; direction: ltr;}
+            .page-number:after { counter-increment: page; content: "Page " counter(page); }
+
+            .print-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.08; z-index: 9999; pointer-events: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; text-align: center; }
+            .print-watermark img { width: 350px; height: 350px; border-radius: 50%; filter: grayscale(100%); display: block; margin: 0 auto;}
+            .print-watermark h1 { display: none !important; }
+
+            .exam-title-box { text-align: left; direction: ltr; margin-bottom: 10mm; padding: 0 15mm;}
+            .exam-title-box h2 { font-family: 'Outfit'; font-size: 28px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 15px; text-align: left;}
+            .student-info-row { display: flex; align-items: flex-end; justify-content: flex-start; gap: 30px; font-family: 'Outfit', 'Cairo'; font-size: 16px; font-weight: 700; width: 100%; direction: ltr; text-align: left; }
+            .info-field { display: flex; align-items: flex-end; }
+            .name-field { flex: 2.5; }
+            .score-field { flex: 1; }
+            .info-label { margin-right: 10px; white-space: nowrap; padding-bottom: 2px; }
+            .info-line { border-bottom: 2px dotted #000; flex: 1; min-height: 20px; padding-bottom: 2px; text-align: center; color: #000; font-size: 18px;}
+
+            .print-q-container { padding: 0 15mm; }
+            .print-q-item { page-break-inside: avoid; margin-bottom: 25px; font-family: 'Outfit', 'Cairo'; }
+            .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: block; width: 100%; }
+            .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; text-align: left;}
+            .print-opt-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #000;}
+            .print-opt-letter { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;}
+            .print-rule-box { display: none; }
+
+            /* MODE 1: Blank Exam */
+            body.print-blank-mode .ui-ans-box, body.print-blank-mode .explanation-box { display: none !important; }
+            body.print-blank-mode .print-options-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; font-family: 'Outfit'; font-size: 16px; font-weight: 600; }
+            body.print-blank-mode .review-item.is-correct, body.print-blank-mode .review-item.is-wrong { border-left: 1px solid #ccc !important; }
+
+            /* MODE 2: Teacher Notes / Smart Notes */
+            body.print-notes-mode #print-title-out::after { content: " (Model Answer & Notes)"; font-size: 16px; color: #555; display: block; margin-top: 5px; text-transform: none;}
+            body.print-notes-mode .print-opt-item.is-correct-opt { display: flex !important; background: #f0fdf4 !important; border: 1px solid #16a34a !important; padding: 10px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .print-opt-item.is-correct-opt .print-opt-letter { background: #16a34a !important; color: #fff !important; border-color: #16a34a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .print-rule-box { display: block !important; background: #f8fafc !important; border: 1px dashed #64748b !important; padding: 12px !important; border-radius: 8px !important; margin-top: 12px !important; font-family: 'Cairo'; font-size: 15px; font-weight: 700; direction: rtl; text-align: right; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .omr-container { display: none !important; } 
+
+            /* OMR */
+            .omr-container { display: none; page-break-before: always; padding: 10mm 15mm; font-family: 'Outfit'; }
+            body.omr-active .omr-container { display: block !important; }
+            .omr-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; direction: ltr;}
+            .omr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 30px; direction: ltr;}
+            .omr-row { display: flex; align-items: center; gap: 15px; }
+            .omr-q-num { font-weight: 900; font-size: 16px; width: 25px; text-align: right; }
+            .omr-bubbles { display: flex; gap: 5px; }
+            .omr-bubble { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+        }
+
+        /* ========================================================
+           📱 MOBILE THUMB-FRIENDLY ADJUSTMENTS
+           ======================================================== */
+        @media (max-width: 768px) {
+            body { padding: 12px 6px; }
+            .main-container { border-radius: 20px;}
+            header { padding: 65px 15px 25px; }
+            .top-bar-controls { top: 12px; padding: 0 12px; }
+            header img { width: 90px; height: 90px; margin-top: 15px;}
+            header h1 { font-size: 24px; }
+            
+            .timer-box { font-size: 15px; height: 40px; }
+            .icon-btn { width: 40px; height: 40px; }
+            
+            .cheer-bubble { padding: 14px 18px; }
+            
+            .avatar-grid { gap: 10px; padding: 15px 5px 25px 5px; }
+            .avatar-option { font-size: 26px; padding: 10px 14px; }
+            
+            .action-btns { flex-direction: column; gap: 14px; margin-top: 35px;}
+            .btn { width: 100%; font-size: 16px; padding: 18px; }
+            
+            .result-actions { grid-template-columns: 1fr; }
+            .btn-full { grid-column: span 1; }
+            .score-circle { width: 180px; height: 180px; font-size: 45px;}
+        }
+    </style>
+</head>
+<body id="main-body" class="theme-1">
+
+<div class="bg-orb"></div>
+<div class="bg-grid"></div>
+
+<div id="cheat-modal">
+    <div class="cheat-content">
+        <h1>🚨 نظام المراقبة الصامت</h1>
+        <p id="cheat-msg">تم رصد فقدان التركيز والخروج من شاشة التقييم.</p>
+        <button onclick="document.getElementById('cheat-modal').style.display='none'" class="btn btn-outline" style="color:var(--error-color); border-color:var(--error-color); width:100%;">أعتذر، سأحافظ على تركيزي</button>
+    </div>
+</div>
+
+<div id="pause-modal">
+    <div class="cheat-content" style="border-color: var(--accent);">
+        <h1 style="color: var(--accent);">⏸️ إيقاف مؤقت</h1>
+        <p id="pause-count-msg" style="color: var(--text-main); font-size: 18px; margin-bottom: 20px;"></p>
+        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 30px;">رادار المراقبة لا يزال يعمل. الخروج من المتصفح سيسجل تحذيراً.</p>
+        <button type="button" onclick="togglePause()" class="btn btn-solid" style="width:100%;">▶️ استئناف التحدي</button>
+    </div>
+</div>
+
+<!-- ========================================================
+     🖨️ PRINT MASTER ENGINE V.MAX CONTAINER
+     ======================================================== -->
+<div id="print-container">
+    <div class="print-watermark">
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Watermark">
+    </div>
+    <table class="print-table">
+        <thead class="print-thead">
+            <tr>
+                <td>
+                    <div class="header-content">
+                        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Logo">
+                        <div><strong>Mr. Ayman Kamel</strong><span>English Language Educator</span></div>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="print-tbody">
+            <tr>
+                <td>
+                    <div class="exam-title-box">
+                        <h2 id="print-title-out">ELITE CHALLENGE - CODE: U3-DEC-EX60</h2>
+                        <div class="student-info-row">
+                            <div class="info-field name-field"><span class="info-label">Student Name:</span><div class="info-line" id="print-doc-student"></div></div>
+                            <div class="info-field score-field"><span class="info-label">Score:</span><div class="info-line" id="print-score-out">/ 60</div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="print-q-container" id="print-q-list"></div>
+
+                    <div class="omr-container">
+                        <div class="omr-title">OMR Bubble Sheet</div>
+                        <div class="omr-grid" id="omr-grid"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="print-tfoot">
+            <tr>
+                <td>
+                    <div class="footer-content">
+                        <div>📞 01284749899</div>
+                        <div class="page-number"></div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="main-container" id="app-container">
+    
+    <header class="no-print">
+        <div class="top-bar-controls">
+            <div class="left-controls">
+                <div class="time-controls" id="timer-container" style="display: none;">
+                    <div class="timer-box" id="timer-box"><div class="time-dot"></div><span id="timer-text">--:--</span></div>
+                    <button type="button" class="icon-btn" id="btn-pause" onclick="togglePause()" title="إيقاف مؤقت">⏸️</button>
+                    <button type="button" class="icon-btn" id="btn-timer-view" onclick="toggleTimerView()" title="إخفاء الوقت">⏱️</button>
+                </div>
+            </div>
+            <div class="right-controls">
+                <div class="eye-care-controls" id="eye-care-container" style="display: none;">
+                    <button type="button" class="icon-btn" onclick="changeFontSize(2)" title="تكبير الخط">A+</button>
+                    <button type="button" class="icon-btn" onclick="changeFontSize(-2)" title="تصغير الخط">A-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cheer-wrapper" id="cheer-wrapper">
+            <div class="cheer-bubble">
+                <div class="cheer-text">
+                    <div class="cheer-en" id="cheer-en"></div>
+                    <div class="cheer-separator"></div>
+                    <div class="cheer-ar" id="cheer-ar"></div>
+                </div>
+                <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel">
+            </div>
+        </div>
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel Logo" onclick="triggerEasterEgg()">
+        <h1>Mr. Ayman Kamel</h1>
+        <p class="job-title">English Language Educator</p>
+        <p class="slogan" style="unicode-bidi: isolate; direction: ltr;">"Let's learn together!"</p>
+        <div class="vip-phone">📞 01284749899</div>
+    </header>
+
+    <div class="content-body no-print" id="start-body">
+        <div id="start-screen">
+            <div class="welcome-card">
+                <h3>🌟 خطوتك نحو القمة تبدأ هنا!</h3>
+                <p>تحدي استثنائي شامل لقياس قدرات الاستنتاج والتأكيد في اللغة الإنجليزية. اقرأ التفاصيل بدقة واستعد لإثبات جدارتك.<br><br>هل تقبل التحدي وتستطيع الوصول للقمة؟</p>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختار مستوى التحدي الزمني:</h4>
+            <div class="ta-grid">
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(20, this)">⚡ 20ث (أساطير)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(30, this)">🔥 30ث (محترفين)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(45, this)">⏳ 45ث (أبطال)</button>
+                <button type="button" class="btn ta-btn active" onclick="setTimeAttack(0, this)">🛑 كلاسيك (وقت مفتوح)</button>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختر مفتاح العبور الخاص بك:</h4>
+            <div class="avatar-grid">
+                <div class="avatar-option selected" onclick="selectAvatar(this, '💎')">💎</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🚀')">🚀</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '⚡')">⚡</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🏆')">🏆</div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off" onkeypress="if(event.key === 'Enter') startQuiz()">
+            </div>
+            <button type="button" class="btn btn-solid" style="width:100%" id="start-btn-action" onclick="startQuiz()">START ASSESSMENT ➔</button>
+        </div>
+
+        <div id="quiz-screen" style="display: none;">
+            <div class="hud-progress-wrapper">
+                <div class="hud-stats">
+                    <div class="hud-student"><div class="avatar-ring" id="hud-avatar">💎</div> <span id="hud-name">--</span></div>
+                    <div class="hud-counter" id="progress-count">Q: 1 / 60</div>
+                </div>
+                <div class="hud-bar-container">
+                    <div class="hud-bar-fill" id="energy-bar"><div class="hud-avatar-runner" id="hud-moving-avatar">💎</div></div>
+                </div>
+            </div>
+            <div class="station-card" id="q-box">
+                <div class="question-text">
+                    <div class="question-text-wrapper"><span id="question-text-content" style="display: block; width: 100%; direction: ltr; text-align: left;">--</span></div>
+                    <div class="tts-btn-container"><button type="button" class="icon-btn" style="border-color:var(--accent); color:var(--accent); background: #FFF;" onclick="speakQuestion()">🔊</button></div>
+                </div>
+                <div class="options-list" id="options-list" style="direction: ltr;"></div>
+            </div>
+            <div class="action-btns">
+                <button type="button" class="btn btn-solid" id="next-btn" onclick="nextQuestion()">NEXT ➔</button>
+                <button type="button" class="btn btn-solid" id="submit-btn" onclick="calculateScore()" style="display: none;">🚀 SUBMIT</button>
+                <button type="button" class="btn btn-prev" id="prev-btn" onclick="prevQuestion()" disabled>⬅ PREV</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" style="display: none;">
+        
+        <div class="score-card no-print">
+            <div class="score-circle" id="score-percentage">0 / 0</div>
+            <div id="score-percent-text">Accuracy: 0%</div>
+            <div id="student-display-name"><span class="result-avatar" id="res-avatar">💎</span> <span id="res-name"></span></div>
+            <div class="scratch-container">
+                <div id="badge-award-box" class="badge-award">اخدش لترى حالتك</div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+            <p id="score-details" style="font-size: 16px; font-weight: 700; margin-top: 25px; color: var(--text-muted);"></p>
+        </div>
+
+        <div class="result-actions no-print">
+            <button type="button" class="btn btn-outline" style="background:#F8FAFC; border-color:#E2E8F0; color:var(--text-main);" onclick="printBlankExam()">🖨️ طباعة كاختبار ورقي</button>
+            <button type="button" class="btn btn-outline" style="background:#F8FAFC; border-color:#E2E8F0; color:var(--text-main);" onclick="printSmartNotes()">📥 مذكرة الأخطاء (شرح)</button>
+            
+            <button type="button" class="btn btn-solid btn-full" id="cert-btn" onclick="downloadCertificate()" style="display: none;">📜 استخراج شهادة النخبة</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToTeacherWhatsApp()">👨‍🏫 إرسال التقرير لمستر أيمن</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToParentWhatsApp()">👨‍👩‍👧 تقرير ولي الأمر</button>
+            <button type="button" class="btn btn-outline btn-full" style="color:var(--accent); border-color:var(--accent);" onclick="location.reload()">🔄 إعادة المحاولة</button>
+        </div>
+
+        <h3 class="no-print" style="text-align: right; color: var(--text-main); margin-top: 20px; border-bottom: 2px dashed rgba(0,0,0,0.1); padding-bottom: 12px; font-weight: 900;">📂 المراجعة اللحظية (Smart Revision):</h3>
+        
+        <div id="review-list" class="no-print"></div>
+    </div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxps3pkSIfSFL8rwhCNMlNCEYkeL2ooxYo_6WgWRXHHL0hcY0owu-x0qRtZei0migOyxg/exec";
+const EXAM_TITLE = "ELITE CHALLENGE - CODE: U3-DEC-EX60";
+const EXAM_SCORE_TEXT = "/ 60";
+
+function tryVibrate(pattern) { if (navigator.vibrate) try { navigator.vibrate(pattern); } catch(e){} }
+
+/* 🔥 REFRESH PROTECTION 🔥 */
+window.addEventListener('beforeunload', function (e) {
+    if (document.getElementById('quiz-screen') && document.getElementById('quiz-screen').style.display === 'block' && !isSubmitting) {
+        e.preventDefault();
+        e.returnValue = ''; 
+    }
+});
+
+/* 🖨️ Print Master Engine Direct Modes */
+function preparePrintData() {
+    const titleOut = document.getElementById("print-title-out");
+    const scoreOut = document.getElementById("print-score-out");
+    if(titleOut) titleOut.innerText = EXAM_TITLE;
+    if(scoreOut) scoreOut.innerText = EXAM_SCORE_TEXT;
+}
+
+function printBlankExam() {
+    preparePrintData();
+    document.body.classList.remove('print-notes-mode');
+    document.body.classList.add('print-blank-mode');
+    document.body.classList.add('omr-active'); 
+    window.print();
+    document.body.classList.remove('print-blank-mode');
+    document.body.classList.remove('omr-active');
+}
+
+function printSmartNotes() {
+    preparePrintData();
+    document.body.classList.remove('print-blank-mode');
+    document.body.classList.remove('omr-active'); 
+    document.body.classList.add('print-notes-mode');
+    window.print();
+    document.body.classList.remove('print-notes-mode');
+}
+
+/* Audio & Init */
+let audioCtx = null;
+function initAudio() { try { if (!audioCtx) { const AudioContext = window.AudioContext || window.webkitAudioContext; if(AudioContext) audioCtx = new AudioContext(); } if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); } catch(e) {} }
+function playTone(freq, type, duration) { try { initAudio(); if (!audioCtx) return; let osc = audioCtx.createOscillator(), gain = audioCtx.createGain(); osc.type = type; osc.frequency.value = freq; gain.gain.setValueAtTime(0.05, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + duration); } catch(e) {} }
+function soundWrongTime() { tryVibrate([100, 50, 100]); playTone(150, 'sawtooth', 0.3); setTimeout(()=>playTone(100, 'sawtooth', 0.4), 200); }
+function soundBossWin() { tryVibrate([200, 100, 200, 100, 200]); [523, 659, 783, 1046, 1318].forEach((f,i)=> setTimeout(()=>playTone(f,'square',0.15), i*100)); }
+
+function speakQuestion() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        let text = quizData[currentQuestion].originalQ.replace(/_+/g, "blank").replace(/\.{3,}/g, "blank");
+        let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.85;
+        window.speechSynthesis.speak(msg);
+    }
+}
+
+function initScratchCard() {
+    try {
+        const container = document.getElementById("badge-award-box");
+        const canvas = document.getElementById("scratch-canvas");
+        if(!container || !canvas) return;
+        const ctx = canvas.getContext("2d");
+        canvas.width = container.offsetWidth; canvas.height = container.offsetHeight;
+        let currentAccent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#D97706';
+        ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "bold 18px 'Cairo', sans-serif"; ctx.fillStyle = currentAccent;
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("🪄 اخدش عشان تشوف نتيجتك", canvas.width/2, canvas.height/2);
+        let isDrawing = false;
+        function scratch(e) {
+            if(!isDrawing) return; e.preventDefault();
+            let rect = canvas.getBoundingClientRect();
+            let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+            let y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.beginPath(); ctx.arc(x, y, 35, 0, Math.PI*2); ctx.fill();
+        }
+        canvas.onmousedown = () => isDrawing = true; canvas.ontouchstart = () => isDrawing = true;
+        canvas.onmouseup = () => isDrawing = false; canvas.ontouchend = () => isDrawing = false;
+        canvas.onmousemove = scratch; canvas.ontouchmove = scratch;
+    } catch(e) { console.log("Scratch card init skipped"); }
+}
+
+const cheers = [
+    {en: "You are dominating!", ar: "وحش، إنت مسيطر على الموقف تماماً!"},
+    {en: "Precision is key!", ar: "دماغك ألماظ، تركيزك في محله!"},
+    {en: "Keep up the great work!", ar: "كمل على كده، مفيش حاجة هتوقفك!"},
+    {en: "Unstoppable momentum!", ar: "الدوسة دي متوقفهاش، هانت!"},
+    {en: "Brilliant execution!", ar: "الله ينور، أداء متعلمين بجد!"},
+    {en: "Don't let anything distract you!", ar: "خليك فايق ومصحصح، الغلطة بفورة!"},
+    {en: "You're closer to perfection!", ar: "خطوة كمان والتقفيل يبقى بتاعك!"},
+    {en: "Take a deep breath and conquer!", ar: "خد نفس عميق وفرتك اللي بعده."},
+    {en: "Pure genius!", ar: "عبقرية ماشية على الأرض، استمر!"},
+    {en: "Every detail matters!", ar: "ركز في التفاصيل، هي دي اللي بتفرق!"},
+    {en: "You're on fire today!", ar: "إنت مولعها النهاردة، بطل!"},
+    {en: "Stay sharp!", ar: "أوعى تسرح، عينك في وسط راسك!"},
+    {en: "Legendary progress!", ar: "أداء أساطير، مفيش كلام!"},
+    {en: "Nothing can break your focus!", ar: "ولا ألف سؤال يقدروا يوقعوك!"},
+    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها نهائياً!"}
+];
+let lastCheerIndex = -1; 
+function triggerTeacherCheer() {
+    const wrapper = document.getElementById("cheer-wrapper");
+    if(!wrapper) return;
+    let randomIndex; do { randomIndex = Math.floor(Math.random() * cheers.length); } while (randomIndex === lastCheerIndex); 
+    lastCheerIndex = randomIndex;
+    const enEl = document.getElementById("cheer-en");
+    const arEl = document.getElementById("cheer-ar");
+    if(enEl) enEl.innerText = cheers[randomIndex].en;
+    if(arEl) arEl.innerText = cheers[randomIndex].ar;
+    wrapper.classList.add("show"); setTimeout(() => { wrapper.classList.remove("show"); }, 3500);
+}
+
+let easterEggCount = 0;
+function triggerEasterEgg() { 
+    easterEggCount++;
+    if(easterEggCount >= 5) {
+        easterEggCount = 0;
+        try { soundBossWin(); } catch(e){}
+        alert("💎 Obsidian Gold Print Master V.MAX Active! 💎"); 
+    }
+}
+
+function changeFontSize(change) {
+    const root = document.documentElement;
+    let currentSize = parseInt(getComputedStyle(root).getPropertyValue('--q-font-size')) || 22;
+    let newSize = currentSize + change;
+    if(newSize >= 16 && newSize <= 30) root.style.setProperty('--q-font-size', newSize + 'px');
+}
+
+/* 🔥 UNIT 3 COMPLETE 60 QUESTIONS (DEDUCTION & SPECULATION) 🔥 */
+const rawData = [
+    { q: "1. He left his glasses at school yesterday, I'm hoping someone ............ found them.", options: ["must have", "might have", "can't have", "can have"], answer: 1, rule: "Past Possibility (Deduction)", zatona: "احتمال حدوث شيء في الماضي غير متأكد منه بنسبة 100% (might have)." },
+    { q: "2. He ............ visit us tomorrow. I'm not sure.", options: ["must", "may", "has to", "shouldn't"], answer: 1, rule: "Future Possibility", zatona: "وجود (I'm not sure) يدل على احتمال في المستقبل، فنختار (may)." },
+    { q: "3. You ............ to drink lots of water when you're on a diet.", options: ["should", "must", "ought", "used"], answer: 2, rule: "Advice with Ought", zatona: "فعل ought يأخذ حرف الجر to ليساوي should (ought to)." },
+    { q: "4. Maha's mother is angry with her ; she ............ come late last night.", options: ["shouldn't have", "have", "mustn't", "may not"], answer: 0, rule: "Past Criticism / Regret", zatona: "لوم وعتاب على فعل شيء خطأ في الماضي (shouldn't have + PP)." },
+    { q: "5. No one realized that the document was important. It ............ thrown out.", options: ["should have been", "might have been", "can't be", "must be"], answer: 1, rule: "Past Possibility Passive", zatona: "احتمال مبني للمجهول في الماضي لعدم اليقين (might have been thrown out)." },
+    { q: "6. Ramy got wet walking home last night. He ............ have taken an umbrella.", options: ["must", "should", "may", "might"], answer: 1, rule: "Past Advice / Omission", zatona: "ندم أو لوم على عدم أخذ مظلة في الماضي (should have taken)." },
+    { q: "7. He ............ to the cinema, but he stayed at home to study his lessons.", options: ["could have gone", "must have gone", "should go", "can go"], answer: 0, rule: "Unfulfilled Past Ability", zatona: "قدرة وإمكانية كانت متاحة في الماضي ولكنه لم يفعلها (could have gone)." },
+    { q: "8. Judy was lucky. She ............ herself when she fell, but she's OK.", options: ["must have hurt", "should have hurt", "may be hurt", "could have hurt"], answer: 3, rule: "Unfulfilled Past Possibility", zatona: "احتمال خطر كان قريباً جداً ولكنه لم يحدث (could have hurt)." },
+    { q: "9. You ............ something to us in private instead of making a scene in front of everybody.", options: ["would have said", "could have said", "should say", "can say"], answer: 1, rule: "Past Criticism", zatona: "لوم شخص على تصرف كان يجب فعله بطريقة أفضل في الماضي (could have said)." },
+    { q: "10. My father barely touched his lunch. He ............ have been hungry.", options: ["shouldn't", "couldn't", "may", "might"], answer: 1, rule: "Negative Deduction (Impossibility)", zatona: "استنتاج منفي مؤكد (استحالة أن يكون جائعاً لأنه لم يطعم طعامه) (couldn't have been)." },
+    { q: "11. The meeting ............ cancelled; I don't have accurate information.", options: ["must have been", "might have been", "must have", "might have"], answer: 1, rule: "Uncertain Past Deduction", zatona: "عدم التأكد من إلغاء الاجتماع في الماضي (might have been)." },
+    { q: "12. Look for your pencil in the drawer. It ............ be there next to the ruler.", options: ["can't", "must", "have to", "shouldn't"], answer: 1, rule: "Logical Deduction", zatona: "استنتاج منطقي مؤكد بوجود القلم في الدرج (must)." },
+    { q: "13. The police knew everything about the murderer. They ............ have undertaken their investigations.", options: ["should", "can't", "must", "might"], answer: 2, rule: "Positive Logical Deduction", zatona: "استنتاج إيجابي مؤكد بقوة الأدلة (must have undertaken)." },
+    { q: "14. It ............ have been cold there. There is snow on the ground in the photo.", options: ["can't", "might", "must", "may not"], answer: 2, rule: "Strong Deduction (Evidence)", zatona: "وجود الثلج دليل قاطع يؤكد البرودة الشديدة (must have been)." },
+    { q: "15. Leila fell off her bed and broke an arm. I'm sure she ............ asleep.", options: ["must be", "can't have been", "must have been", "can't be"], answer: 2, rule: "Certain Past Deduction", zatona: "عبارة (I'm sure) تؤكد الاستنتاج في الماضي (must have been asleep)." },
+    { q: "16. I have seen her car outside. she ............ .", options: ["must have arrived", "can't have arrived", "might arrive", "can't arrive"], answer: 0, rule: "Deduction from Evidence", zatona: "رؤية السيارة بالخارج دليل قاطع على وصولها (must have arrived)." },
+    { q: "17. We don't know when earthquakes happen. They ............ predicted.", options: ["were", "have been", "had been", "can't be"], answer: 3, rule: "Impossibility (Passive)", zatona: "استحالة التنبؤ بالزلازل حتى الآن (can't be predicted)." },
+    { q: "18. Samy didn't take his keys; he ............ have seen them.", options: ["must", "can", "can't", "may"], answer: 2, rule: "Negative Deduction", zatona: "عدم أخذ المفاتيح يعني استحالة رؤيته لها (can't have seen)." },
+    { q: "19. She ............ caught her bus because she would have been here by now.", options: ["can't have", "might have", "could have", "must have"], answer: 0, rule: "Deduction based on Result", zatona: "لوجود النتيجة (لم تصل حتى الآن)، إذن استحالة أنها لحقت الأتوبيس (can't have caught)." },
+    { q: "20. Nadine ............ have left because her coat isn't here.", options: ["mightn't", "can't", "mustn't", "must"], answer: 3, rule: "Strong Deduction", zatona: "عدم وجود المعطف دليل قاطع ومؤكد على مغادرتها (must have left)." },
+    { q: "21. The office is locked. She ............ home.", options: ["can't have gone", "must have gone", "didn't have to go", "mustn't go"], answer: 1, rule: "Strong Deduction", zatona: "المكتب مغلق، إذن المؤكد أنها ذهبت للمنزل (must have gone)." },
+    { q: "22. She ............ have known about the bad news. She seemed very sad.", options: ["couldn't", "must", "can't", "mustn't"], answer: 1, rule: "Logical Deduction (Sadness)", zatona: "ظهور الحزن الشديد عليها دليل استنتاج أنها علمت بالأخبار السيئة (must)." },
+    { q: "23. He ............ have died of cancer, but we have no evidence.", options: ["may", "must", "can't", "mustn't"], answer: 0, rule: "Weak Possibility", zatona: "عدم وجود أدلة يترك الباب لاحتمال ضعيف (may)." },
+    { q: "24. She ............ be talented. She plays the violin and the lute well.", options: ["can't", "mustn't", "must", "has to"], answer: 2, rule: "Strong Present Deduction", zatona: "إجادة العزلة دليل قوي على الموهبة المؤكدة (must be)." },
+    { q: "25. She ............ gone far. I just saw her car leave a minute ago.", options: ["must have", "should have", "can't have", "can have"], answer: 2, rule: "Negative Deduction (Time)", zatona: "مغادرة السيارة منذ دقيقة تعني استحالة ذهابها بعيداً (can't have gone far)." },
+    { q: "26. She ............ yet. Her coat's still here.", options: ["can't have left", "must have left", "may have left", "should have left"], answer: 0, rule: "Deduction from Clue", zatona: "وجود المعطف حتى الآن دليل على استحالة مغادرتها (can't have left)." },
+    { q: "27. He ............ have got lost. It isn't easy to find this place.", options: ["can't", "should", "may", "shouldn't"], answer: 2, rule: "Past Possibility", zatona: "صعوبة المكان ترجح احتمال ضياعه (may have got lost)." },
+    { q: "28. You were right there when the accident happened. You ............ everything.", options: ["should have seen", "can't have seen", "must see", "must have seen"], answer: 3, rule: "Logical Past Deduction", zatona: "وجوده لحظة الحادثة يؤكد رؤيته لكل شيء (must have seen)." },
+    { q: "29. I have a sore throat. I ............ caught your cold.", options: ["should", "can't", "shouldn't", "may have"], answer: 3, rule: "Past Possibility", zatona: "التهاب الحلق يرجح احتمال التقاط العدوى (may have caught)." },
+    { q: "30. You look refreshed and well-rested. You ............ slept well.", options: ["must have", "can't have", "should have", "shouldn't have"], answer: 0, rule: "Strong Deduction (Appearance)", zatona: "المظهر النشيط يؤكد النوم الجيد (must have slept)." },
+    { q: "31. I only lent you the book this morning! You ............ finished it already!", options: ["must have", "may have", "might have", "can't have"], answer: 3, rule: "Impossibility Deduction", zatona: "إعارة الكتاب صباحاً تعني استحالة إنهائه بهذه السرعة (can't have finished)." },
+    { q: "32. He ............ be at home. His car is not in the garage.", options: ["mustn't", "can't", "could", "shouldn't"], answer: 1, rule: "Negative Deduction", zatona: "عدم وجود السيارة دليل قاطع على استحالة تواجده في البيت (can't be)." },
+    { q: "33. My diary isn't in its regular place; someone ............ it.", options: ["was to have taken", "should have taken", "would have taken", "must have taken"], answer: 3, rule: "Logical Past Deduction", zatona: "اختفاء المفكرة يؤكد أخذها بواسطة شخص ما (must have taken)." },
+    { q: "34. Oh no! Fred's wallet is lying on the coffee table. He ............ it here last night", options: ["had better leave", "must have left", "might leave", "should have left"], answer: 1, rule: "Deduction from Item", zatona: "وجود المحفظة الآن دليل قاطع على تركها هنا ليلاً (must have left)." },
+    { q: "35. It ............ be Eman who is crossing the street; Eman is taller.", options: ["mustn't", "wouldn't", "shouldn't", "can't"], answer: 3, rule: "Negative Present Deduction", zatona: "اختلاف الطول ينفي تماماً أن تكون هي (can't be)." },
+    { q: "36. She must ............ awful when she was told that she had been fired.", options: ["feel", "felt", "have felt", "be felt"], answer: 2, rule: "Must have + PP", zatona: "استنتاج مؤكد لحدث في الماضي باستخدام (must have + PP) (have felt)." },
+    { q: "37. I ............ my notebook at the café when I went for lunch. I'm not sure.", options: ["might have left", "can't have left", "must have left", "might leave"], answer: 0, rule: "Doubtful Past Possibility", zatona: "وجود (I'm not sure) يرجح الاحتمال الضعيف (might have left)." },
+    { q: "38. I ............ my notebook at the café when I went for lunch. I'm sure.", options: ["might have left", "can't have left", "must have left", "might leave"], answer: 2, rule: "Certain Past Deduction", zatona: "وجود (I'm sure) يؤكد الاستنتاج الإيجابي (must have left)." },
+    { q: "39. Mum ............ got my message; otherwise she would have called me.", options: ["must", "can't have", "must have", "can't"], answer: 2, rule: "Deduction from Consequence", zatona: "لو لم تستلمها لاتصلت بي، إذن المؤكد أنها استلمتها (must have got)." },
+    { q: "40. Have you eaten all the cake? You ............ left some for me!", options: ["couldn't", "must not", "can't", "might have"], answer: 3, rule: "Past Criticism / Omission", zatona: "عتاب ولوم على عدم ترك قطعة كعكة (might have left)." },
+    { q: "41. The thieves ............ left the country by the time we get to the airport.", options: ["could have", "mustn't have", "could", "might"], answer: 0, rule: "Past Possibility", zatona: "احتمال هروب اللصوص ومغادرتهم البلاد (could have left)." },
+    { q: "42. In the morning the streets were flooded. There ............ a cloudburst during the night.", options: ["must have been", "has been", "must be", "must to been"], answer: 0, rule: "Strong Past Deduction", zatona: "فيضانات الشوارع دليل قاطع على حدوث عاصفة مطرية ليلاً (must have been)." },
+    { q: "43. She ............ her phone at home because she doesn't have it with her now.", options: ["must have left", "can't have left", "may leave", "should have left"], answer: 0, rule: "Logical Deduction", zatona: "عدم حمل الهاتف الآن يؤكد تركها له بالمنزل (must have left)." },
+    { q: "44. He ............ finished the book already; it's too long to read in one day.", options: ["must", "can't have", "must have", "can't"], answer: 1, rule: "Impossibility Deduction", zatona: "طول الكتاب ينفي استحالة إنهائه في يوم واحد (can't have finished)." },
+    { q: "45. He ............ the wrong instructions because he made a mistake.", options: ["must have given", "can't have been given", "may have given", "must have been given"], answer: 3, rule: "Passive Past Deduction", zatona: "هو أُعطي التعليمات الخاطئة (مبني للمجهول مؤكد في الماضي) (must have been given)." },
+    { q: "46. He ............ the wrong instructions because he made no mistake.", options: ["must have given", "can't have been given", "may have given", "must have been given"], answer: 1, rule: "Negative Passive Deduction", zatona: "عدم ارتكابه لأي خطأ ينفي إعطاءه تعليمات خاطئة (can't have been given)." },
+    { q: "47. Menna ............ remembered our phone number because she called us today.", options: ["might", "couldn't have", "must have", "must have been"], answer: 2, rule: "Strong Past Deduction", zatona: "اتصالها بنا اليوم يؤكد تذكرها للرقم (must have remembered)." },
+    { q: "48. Faisal didn't come to work yesterday; he ............ fallen ill.", options: ["should have", "couldn't have", "may have", "might"], answer: 2, rule: "Past Possibility", zatona: "الغياب يرجح احتمال مرضه (may have fallen ill)." },
+    { q: "49. If Fahd had studied more, he ............ passed the exam.", options: ["must have", "can't have", "might have", "mightn't have"], answer: 2, rule: "Third Conditional Deduction", zatona: "قاعدة الثالثة للحالة الشرطية تعبر عن احتمال في الماضي (might have passed)." },
+    { q: "50. The cake is delicious; it ............ been baked without care.", options: ["couldn't have", "may have", "can't", "must have"], answer: 0, rule: "Negative Past Deduction", zatona: "روعة الكعكة تنفي تماماً إعدادها بدون عناية (couldn't have been)." },
+    { q: "51. Dr.Mazen is a successful doctor. He ............ a brilliant student.", options: ["must be", "must have been", "might be", "can't have been"], answer: 1, rule: "Logical Past Deduction", zatona: "كونه طبيباً ناجحاً اليوم يستنتج منه أنه كان طالباً متميزاً بالماضي (must have been)." },
+    { q: "52. Why don't you want any cake? You ............ eaten that much at dinner", options: ["can't", "must not", "can't have", "can have"], answer: 2, rule: "Impossibility Deduction", zatona: "استحالة أكل كل هذه الكمية لوجود عشاء سابق (can't have eaten)." },
+    { q: "53. How did he fail that test? - He ............ have prepared for it well.", options: ["can't", "will", "would", "must"], answer: 0, rule: "Negative Past Deduction", zatona: "الرسوب يؤكد استحالة استعداده الجيد للاختبار (can't have prepared)." },
+    { q: "54. The children ............ have eaten all the cookies; there are none left in the jar.", options: ["can't", "will", "would", "must"], answer: 3, rule: "Positive Past Deduction", zatona: "خلو البرطمان يؤكد أكلهم للبسكويت (must have eaten)." },
+    { q: "55. They ............ have made such a big mistake; they are very careful with their work.", options: ["can't", "will", "would", "must"], answer: 0, rule: "Impossibility Deduction", zatona: "حرصهم الشديد ينفي ارتكابهم لهذا الخطأ الكبير (can't have made)." },
+    { q: "56. The report ............ approved yet; it's still being reviewed.", options: ["can't have", "can't have been", "must have", "mustn't have"], answer: 1, rule: "Passive Impossibility", zatona: "بقاء التقرير قيد المراجعة ينفي الموافقة عليه (can't have been approved)." },
+    { q: "57. The student ............ made noise, which made his teacher dismiss him.", options: ["can't have", "must have", "might be", "can have"], answer: 1, rule: "Logical Past Deduction", zatona: "فصل المعلم له يؤكد إصداره للضوضاء (must have made)." },
+    { q: "58. Her late father left her a considerable fortune. He ............ very wealthy.", options: ["must be", "must have been", "can't have been", "might have", "might have been"], answer: 1, rule: "Logical Past Deduction", zatona: "ترك ثروة طائلة يؤكد ثرائه في الماضي (must have been)." },
+    { q: "59. Ahmed ............ delighted when he was told about his promotion.", options: ["might have", "can't have been", "must have been", "must be"], answer: 2, rule: "Strong Past Deduction", zatona: "خبر الترقي يؤكد شعوره بالسعادة الغامرة في الماضي (must have been delighted)." },
+    { q: "60. Ahmed ............ have stolen the company's money. He's known to be honest.", options: ["can't", "should", "might", "must"], answer: 0, rule: "Impossibility Deduction", zatona: "معروف عنه الأمانة ينفي سرقته لأموال الشركة (can't have stolen)." }
+];
+
+let typeInterval = null;
+let timeAttackLevel = 0;
+let isTimeAttack = false;
+
+function setTimeAttack(level, el) {
+    timeAttackLevel = level;
+    isTimeAttack = (level > 0);
+    document.querySelectorAll('.ta-btn').forEach(btn => btn.classList.remove('active'));
+    if(el) el.classList.add('active');
+}
+
+let quizData = [];
+let currentQuestion = 0, userAnswers = {}, studentName = "", selectedAvatar = '💎';
+let totalSeconds = 60 * 240, qTimeLeft = 15, timerInterval = null;
+let isSubmitting = false; 
+let pauseCount = 0, isPaused = false; 
+let cheatWarningsCount = 0;
+
+document.addEventListener("visibilitychange", () => {
+    const quizScreen = document.getElementById("quiz-screen");
+    if (document.hidden && quizScreen && quizScreen.style.display === "block" && !isSubmitting) {
+        cheatWarningsCount++;
+        if (cheatWarningsCount > 4) {
+            alert("🚨 SYSTEM OVERRIDE: تم سحب الورقة لعدم الالتزام ببروتوكول التركيز.");
+            calculateScore(); 
+        } else {
+            const msgEl = document.getElementById('cheat-msg');
+            if(msgEl) msgEl.innerText = `تم رصد خروجك من النظام.\nالتحذير (${cheatWarningsCount} من 4).\nفي المرة الخامسة سيتم سحب الورقة إجبارياً.`;
+            const modalEl = document.getElementById('cheat-modal');
+            if(modalEl) modalEl.style.display = 'flex';
+            soundWrongTime();
+        }
+    }
+});
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'U') || (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'x'))) e.preventDefault(); });
+document.addEventListener('copy', e => e.preventDefault()); 
+document.addEventListener('paste', e => e.preventDefault()); 
+document.addEventListener('cut', e => e.preventDefault());
+
+function shuffleArray(array) { 
+    for (let i = array.length - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+}
+
+function initQuizData() {
+    if (!rawData || rawData.length === 0) {
+        console.error("الأسئلة مفقودة من المصفوفة!");
+        return;
+    }
+    let tempArray = JSON.parse(JSON.stringify(rawData));
+    shuffleArray(tempArray); 
+    quizData = tempArray.map((item, index) => {
+        let correctText = item.options[item.answer];
+        shuffleArray(item.options); 
+        
+        let customExp = `<div class='exp-en'>💡 <b>Explanation:</b> ${item.rule || "Grammar Rule"}</div>`;
+        if(item.zatona) customExp += `<div class='exp-separator'></div><div class='exp-ar'>✨ <b>الزتونة:</b> ${item.zatona}</div>`;
+
+        return { 
+            rule: item.rule || "Grammar Rule", 
+            originalQ: item.q, 
+            q: `${index + 1}. ` + item.q.replace(/^\d+\.\s*/, ''), 
+            options: item.options, 
+            answer: item.options.indexOf(correctText), 
+            exp: customExp, 
+            zatona: item.zatona || item.rule
+        };
+    });
+}
+
+function updateChromaShift() {
+    let themesCount = 5;
+    let itemsPerTheme = Math.ceil(quizData.length / themesCount);
+    let levelIndex = Math.floor(currentQuestion / itemsPerTheme); 
+    if(levelIndex > 4) levelIndex = 4;
+    document.body.className = `theme-${levelIndex + 1}`;
+}
+
+function selectAvatar(el, avatar) { 
+    document.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected')); 
+    if(el) el.classList.add('selected'); 
+    selectedAvatar = avatar; 
+}
+
+function toggleTimerView() { 
+    const timerText = document.getElementById("timer-text");
+    if(timerText) timerText.classList.toggle("hidden-timer"); 
+}
+
+function startQuiz() {
+    try {
+        const nameInput = document.getElementById("studentName");
+        const input = nameInput ? nameInput.value.trim() : "";
+        if (!input) { 
+            alert("أدخل اسمك الثلاثي لتبدأ التحدي!"); 
+            if(nameInput) nameInput.focus();
+            return; 
+        }
+        studentName = input; 
+        
+        initQuizData(); 
+        
+        const startScreen = document.getElementById("start-screen");
+        const quizScreen = document.getElementById("quiz-screen");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+
+        if(startScreen) startScreen.style.display = "none";
+        if(quizScreen) quizScreen.style.display = "block";
+        if(timerContainer) timerContainer.style.display = "flex";
+        if(eyeContainer) eyeContainer.style.display = "flex";
+        
+        const hudAvatar = document.getElementById("hud-avatar");
+        const hudName = document.getElementById("hud-name");
+        const hudMovingAvatar = document.getElementById("hud-moving-avatar");
+        const printDocStudent = document.getElementById("print-doc-student");
+        const resAvatar = document.getElementById("res-avatar");
+
+        if(hudAvatar) hudAvatar.innerText = selectedAvatar;
+        if(hudName) hudName.innerText = studentName;
+        if(hudMovingAvatar) hudMovingAvatar.innerText = selectedAvatar;
+        if(printDocStudent) printDocStudent.innerText = studentName;
+        if(resAvatar) resAvatar.innerText = selectedAvatar;
+
+        totalSeconds = quizData.length * 240; 
+        if (!isTimeAttack) {
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+        }
+
+        startTimer(); 
+        loadQuestion();
+    } catch (error) {
+        console.error("Start Error: ", error);
+        alert("حدث خطأ، يرجى تحديث الصفحة والمحاولة مرة أخرى.");
+    }
+}
+
+function loadQuestion() {
+    if (typeInterval) clearInterval(typeInterval);
+    updateChromaShift();
+    
+    if(isTimeAttack) { 
+        qTimeLeft = timeAttackLevel; 
+        const timerBox = document.getElementById("timer-box");
+        const timerText = document.getElementById("timer-text");
+        if(timerBox) timerBox.classList.remove("danger"); 
+        if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`; 
+    }
+
+    const item = quizData[currentQuestion];
+    const optionsList = document.getElementById("options-list");
+    
+    if(optionsList) {
+        optionsList.innerHTML = "";
+        item.options.forEach((opt, oIndex) => {
+            const div = document.createElement("div"); 
+            div.className = "option-item";
+            if (userAnswers[currentQuestion] === oIndex) div.classList.add("selected");
+            const letter = String.fromCharCode(65 + oIndex);
+            div.innerHTML = `<div class="opt-letter">${letter}</div> <div class="opt-text" style="direction: ltr;">${opt}</div>`;
+            div.onclick = () => selectOption(oIndex);
+            optionsList.appendChild(div);
+        });
+    }
+
+    const qTextContent = document.getElementById("question-text-content");
+    if(qTextContent) qTextContent.innerText = item.q;
+
+    const progCount = document.getElementById("progress-count");
+    if(progCount) progCount.innerText = `Q: ${currentQuestion + 1} / ${quizData.length}`;
+    
+    let percentProgress = Math.round(((currentQuestion + 1) / quizData.length) * 100);
+    const energyBar = document.getElementById("energy-bar");
+    if(energyBar) energyBar.style.width = `${percentProgress}%`;
+
+    const prevBtn = document.getElementById("prev-btn");
+    if(prevBtn) {
+        prevBtn.disabled = currentQuestion === 0;
+        if(isTimeAttack) prevBtn.style.display = "none";
+    }
+
+    const nextBtn = document.getElementById("next-btn");
+    const submitBtn = document.getElementById("submit-btn");
+    if(nextBtn) nextBtn.style.display = (currentQuestion === quizData.length - 1) ? "none" : "inline-flex";
+    if(submitBtn) submitBtn.style.display = (currentQuestion === quizData.length - 1) ? "inline-flex" : "none";
+}
+
+function selectOption(oIndex) { 
+    userAnswers[currentQuestion] = oIndex; 
+    const optionsList = document.getElementById("options-list"); 
+    if(optionsList) {
+        Array.from(optionsList.children).forEach((child, i) => { 
+            if(i === oIndex) child.classList.add("selected"); 
+            else child.classList.remove("selected"); 
+        }); 
+    }
+}
+
+function nextQuestion(force = false) {
+    if (!force && userAnswers[currentQuestion] === undefined) { 
+        alert("لازم تختار إجابة الأول عشان تكمل!"); 
+        return; 
+    }
+    if (currentQuestion < quizData.length - 1) { 
+        currentQuestion++; 
+        if (currentQuestion % 5 === 0 && currentQuestion !== 0) triggerTeacherCheer(); 
+        loadQuestion(); 
+        if (isTimeAttack) startTimer(); 
+    }
+}
+
+function prevQuestion() { 
+    if (currentQuestion > 0) { 
+        currentQuestion--; 
+        loadQuestion(); 
+        if (isTimeAttack) startTimer(); 
+    } 
+}
+
+function togglePause() {
+    const pauseModal = document.getElementById('pause-modal');
+    if (isPaused) { 
+        isPaused = false; 
+        if(pauseModal) pauseModal.style.display = 'none'; 
+        startTimer(); 
+    } else {
+        if (pauseCount >= 3) { 
+            alert("استنفدت كل محاولات الإيقاف (3/3)!"); 
+            return; 
+        }
+        isPaused = true; 
+        pauseCount++; 
+        if(timerInterval) clearInterval(timerInterval);
+        
+        const pauseMsg = document.getElementById('pause-count-msg');
+        if(pauseMsg) pauseMsg.innerText = `استخدمت (${pauseCount} من 3) محاولات الإيقاف.`;
+        if(pauseModal) pauseModal.style.display = 'flex';
+    }
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (isPaused) return;
+        if(isTimeAttack) {
+            qTimeLeft--;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`;
+            if (qTimeLeft <= 5) {
+                if(timerBox) timerBox.classList.add("danger");
+                const appContainer = document.getElementById("app-container");
+                if(appContainer) {
+                    appContainer.classList.add("shake-active");
+                    setTimeout(()=> appContainer.classList.remove("shake-active"), 400);
+                }
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (qTimeLeft <= 0) { 
+                if(userAnswers[currentQuestion] === undefined) { userAnswers[currentQuestion] = -1; } 
+                if(currentQuestion < quizData.length - 1) { nextQuestion(true); } 
+                else { calculateScore(); } 
+            }
+        } else {
+            totalSeconds--;
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+            if (totalSeconds <= 300) { 
+                if(timerBox) timerBox.classList.add("danger"); 
+                if(totalSeconds % 2 === 0 && timerBox) { 
+                    timerBox.classList.add("shake-active"); 
+                    setTimeout(()=> timerBox.classList.remove("shake-active"), 400); 
+                } 
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (totalSeconds <= 0) { 
+                if(timerInterval) clearInterval(timerInterval); 
+                calculateScore(); 
+            }
+        }
+    }, 1000);
+}
+
+function calculateScore() {
+    if(isSubmitting) return; 
+    isSubmitting = true;
+    try {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        const startBody = document.getElementById("start-body");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+        const resultScreen = document.getElementById("result-screen");
+
+        if(startBody) startBody.style.display = "none";
+        if(timerContainer) timerContainer.style.display = "none";
+        if(eyeContainer) eyeContainer.style.display = "none";
+        if(resultScreen) resultScreen.style.display = "block";
+        window.scroll({ top: 0, left: 0 });
+
+        let score = 0; 
+        const reviewList = document.getElementById("review-list"); 
+        if(reviewList) reviewList.innerHTML = "";
+        
+        let printQList = document.getElementById("print-q-list"); 
+        if(printQList) printQList.innerHTML = "";
+        
+        let omrGrid = document.getElementById("omr-grid"); 
+        if(omrGrid) omrGrid.innerHTML = "";
+
+        let wrongAnswersHTML = ""; 
+        let ruleMistakes = {};
+
+        quizData.forEach((item, index) => {
+            const isCorrect = userAnswers[index] === item.answer;
+            if (isCorrect) { score++; } 
+            else { ruleMistakes[item.rule] = (ruleMistakes[item.rule] || 0) + 1; }
+            
+            let userOptText = "لم يتم الحل ❌"; 
+            let emailUserOptText = "Not answered ❌";
+            if (userAnswers[index] !== undefined && userAnswers[index] !== -1) { 
+                userOptText = item.options[userAnswers[index]]; 
+                emailUserOptText = item.options[userAnswers[index]]; 
+            }
+            const correctOpt = item.options[item.answer];
+
+            if (!isCorrect) {
+                let emailExplanation = (item.exp || "").replace(/class='exp-en'/g, "style='direction: ltr; text-align: left; color: #555; font-size: 14px; margin-bottom: 8px;'").replace(/class='exp-separator'/g, "style='width: 100%; height: 1px; border-bottom: 1px dashed #ccc; margin: 8px 0;'").replace(/class='exp-ar'/g, "style='direction: rtl; text-align: right; color: #000080; font-family: Tahoma, Arial, sans-serif; font-size: 14px; font-weight: bold; margin-top: 8px;'");
+                wrongAnswersHTML += `<div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #e2e8f0;"><div style="direction: ltr; text-align: left; font-weight: bold; color: #000080; margin-bottom: 8px; font-size: 16px;">Q: ${item.originalQ}</div><div style="direction: ltr; text-align: left; color: #E11D48; font-size: 15px; margin-bottom: 4px;">❌ <b>Student's Answer:</b> ${emailUserOptText}</div><div style="direction: ltr; text-align: left; color: #059669; font-size: 15px; margin-bottom: 10px;">✅ <b>Correct Answer:</b> ${correctOpt}</div><div style="background: rgba(0,0,0,0.04); padding: 12px; border-radius: 6px; border-left: 4px solid #D97706;">${emailExplanation}</div><div style="margin-top: 8px; color: #666; font-size: 13px; direction: rtl;">📌 القاعدة المفقودة: ${item.rule}</div></div>`;
+            }
+
+            /* Print Master Engine Data Injection */
+            let printOptionsHTML = '<div class="print-options-grid">';
+            item.options.forEach((opt, idx) => {
+                let isCorrectOptClass = (idx === item.answer) ? 'is-correct-opt' : '';
+                printOptionsHTML += `<div class="print-opt-item ${isCorrectOptClass}"><div class="print-opt-letter">${String.fromCharCode(65 + idx)}</div><span class="print-opt-text">${opt}</span></div>`;
+            });
+            printOptionsHTML += '</div>';
+
+            let printItemHTML = `
+                <div class="print-q-item ${isCorrect ? 'ans-correct' : 'ans-wrong'}">
+                    <div class="print-q-text">${item.q}</div>
+                    ${printOptionsHTML}
+                    <div class="print-rule-box">💡 الزتونة: ${item.zatona}</div>
+                </div>
+            `;
+            if(printQList) printQList.innerHTML += printItemHTML;
+
+            let omrRowHTML = `<div class="omr-row"><div class="omr-q-num">${index + 1}.</div><div class="omr-bubbles">`;
+            for(let b=0; b<4; b++){
+                let isCorrectBubble = (b === item.answer) ? 'is-correct-bubble' : '';
+                omrRowHTML += `<div class="omr-bubble ${isCorrectBubble}">${String.fromCharCode(65 + b)}</div>`;
+            }
+            omrRowHTML += `</div></div>`;
+            if(omrGrid) omrGrid.innerHTML += omrRowHTML;
+
+            const div = document.createElement("div");
+            div.className = `review-item ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+            div.innerHTML = `<div style="font-weight:800;font-size:16px;margin-bottom:8px; direction: ltr; color: var(--text-main);">${item.q}</div>
+                <div class="ui-ans-box">
+                    <div class="student-ans" style="direction: rtl; color: var(--text-muted);">إجابتك: <b style="color:${isCorrect?'var(--success-color)':'var(--error-color)'}; direction: ltr; display: inline-block;">${userOptText}</b></div>
+                    ${!isCorrect ? `<div class="correct-ans" style="color:var(--success-color);font-weight:800;margin-top:4px; direction: rtl;">الإجابة الصحيحة: <span style="direction: ltr; display: inline-block;">${correctOpt}</span></div>` : ''}
+                </div>
+                <div class="explanation-box">${item.exp}</div>`;
+            if(reviewList) reviewList.appendChild(div);
+        });
+
+        const percent = Math.round((score / quizData.length) * 100);
+        window.finalScore = score; 
+        window.finalPercent = percent;
+
+        let weakestRule = "لا يوجد أخطاء 🏆"; 
+        let maxMistakes = 0;
+        for (let r in ruleMistakes) { 
+            if (ruleMistakes[r] > maxMistakes) { 
+                maxMistakes = ruleMistakes[r]; 
+                weakestRule = r; 
+            } 
+        }
+        if(wrongAnswersHTML === "") wrongAnswersHTML = "الطالب قفل التقييم بامتياز! مفيش ولا غلطة 🏆";
+
+        document.body.className = "theme-1"; 
+        
+        const resName = document.getElementById("res-name");
+        const printScoreOut = document.getElementById("print-score-out");
+        const scorePercentage = document.getElementById("score-percentage");
+        const scorePercentText = document.getElementById("score-percent-text");
+        const scoreDetails = document.getElementById("score-details");
+        const badgeAwardBox = document.getElementById("badge-award-box");
+        const certBtn = document.getElementById("cert-btn");
+
+        if(resName) resName.innerText = studentName;
+        if(printScoreOut) printScoreOut.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentage) scorePercentage.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentText) scorePercentText.innerText = `Accuracy: ${percent}%`;
+        
+        let modTxt = isTimeAttack ? " (Time Attack 🔥)" : "";
+        if(scoreDetails) scoreDetails.innerText = `تم إنهاء التقييم بنجاح! ${modTxt}`;
+
+        let badge = percent >= 90 ? "👑 النخبة (Elite)" : percent >= 75 ? "🔥 أداء متميز (Pro)" : "🌱 محاولة مبشرة (Challenger)";
+        if(badgeAwardBox) badgeAwardBox.innerText = badge;
+        
+        if (percent >= 80 && certBtn) certBtn.style.display = "inline-flex";
+
+        try { soundBossWin(); } catch(e){}
+        try { initScratchCard(); } catch(e){}
+        try { 
+            let confColor = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#D97706'; 
+            if (percent >= 80 && typeof confetti === 'function') {
+                confetti({ particleCount: 300, spread: 150, origin: { y: 0.6 }, colors: ['#F8FAFC', confColor, '#0F172A'] }); 
+            }
+        } catch(e){}
+
+        try {
+            let usedTime = isTimeAttack ? "Time Attack" : ( (quizData.length * 240) - totalSeconds) + "s";
+            let payload = new URLSearchParams({ 
+                examName: "ELITE CHALLENGE - CODE: U3-DEC-EX60", 
+                studentName: studentName, 
+                score: `${score} / ${quizData.length}`, 
+                percentage: percent, 
+                date: new Date().toLocaleString('en-GB'), 
+                timeSpent: usedTime, 
+                wrongAnswers: wrongAnswersHTML, 
+                cheatWarnings: cheatWarningsCount, 
+                weakestRule: weakestRule 
+            });
+            fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: payload }).catch(err => console.log("Script sync error:", err));
+        } catch(e){}
+
+    } catch(e) { 
+        console.error("Score calculation error: ", e);
+        document.getElementById("quiz-screen").style.display = "none";
+        document.getElementById("result-screen").style.display = "block";
+        document.getElementById("score-percentage").innerText = "تم التسليم";
+        document.getElementById("score-details").innerText = "تم حفظ التقييم بنجاح.";
+    }
+}
+
+function shareToParentWhatsApp() { 
+    let txt = `👨‍👩‍👧 تقرير أداء - التحدي الأكبر\n👤 الطالب: ${studentName}\n📊 النسبة: ${window.finalPercent}%\n✨ تحت إشراف مستر أيمن كامل.`; 
+    window.open(`https://wa.me/?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+function shareToTeacherWhatsApp() { 
+    let txt = `👨‍🏫 تقرير تسليم - التحدي الأكبر\n👤 الطالب: ${studentName}\n🎯 الدرجة: ${window.finalScore} / ${quizData.length}\n📊 النسبة: ${window.finalPercent}%`; 
+    window.open(`https://wa.me/201284749899?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+
+function downloadCertificate() {
+    const canvas = document.createElement('canvas'); 
+    canvas.width = 1000; 
+    canvas.height = 700; 
+    const ctx = canvas.getContext('2d');
+    let accent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#D97706';
+    
+    ctx.fillStyle = '#F8FAFC'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.save(); 
+    ctx.translate(canvas.width / 2, canvas.height / 2); 
+    ctx.rotate(-Math.PI / 6); 
+    ctx.globalAlpha = 0.04; 
+    ctx.font = "bold 110px 'Outfit'"; 
+    ctx.fillStyle = accent; 
+    ctx.textAlign = "center"; 
+    ctx.textBaseline = "middle"; 
+    ctx.fillText("MR. AYMAN KAMEL", 0, -60); 
+    ctx.fillText("OBSIDIAN ELITE", 0, 70); 
+    ctx.restore();
+    
+    ctx.strokeStyle = accent; 
+    ctx.lineWidth = 10; 
+    ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60); 
+    ctx.globalAlpha = 0.2; 
+    ctx.lineWidth = 3; 
+    ctx.strokeRect(42, 42, canvas.width - 84, canvas.height - 84); 
+    ctx.globalAlpha = 1.0;
+    
+    ctx.textAlign = "center"; 
+    ctx.fillStyle = accent; 
+    ctx.font = "bold 45px 'Outfit'"; 
+    ctx.fillText("✨ Certificate of Ultimate Mastery ✨", canvas.width / 2, 120);
+    
+    ctx.fillStyle = "#64748B"; 
+    ctx.font = "30px 'Outfit'"; 
+    ctx.fillText("This prestigious document is awarded to the elite student:", canvas.width / 2, 220);
+    
+    ctx.fillStyle = "#0F172A"; 
+    ctx.font = "bold 65px 'Cairo'"; 
+    ctx.fillText(studentName, canvas.width / 2, 320);
+    
+    ctx.fillStyle = "#64748B"; 
+    ctx.font = "25px 'Outfit'"; 
+    ctx.fillText(`For successfully decoding the "Elite Challenge" with an accuracy of`, canvas.width / 2, 420);
+    
+    ctx.fillStyle = "#059669"; 
+    ctx.font = "bold 55px 'Outfit'"; 
+    ctx.fillText(`${window.finalScore} / ${quizData.length}  (${window.finalPercent}%)`, canvas.width / 2, 500);
+    
+    ctx.fillStyle = accent; 
+    ctx.font = "22px 'Outfit'"; 
+    ctx.fillText("System Architect: Mr. Ayman Kamel", canvas.width / 2, 600);
+    
+    let d = new Date(); 
+    ctx.font = "18px 'Outfit'"; 
+    ctx.fillText("Issue Date: " + d.toLocaleDateString('en-GB'), canvas.width / 2, 640);
+    
+    ctx.globalAlpha = 0.6; 
+    ctx.textAlign = "left"; 
+    ctx.font = "16px 'Outfit'"; 
+    ctx.fillText("ID: OBS-" + d.getFullYear() + "-" + Math.floor(Math.random()*90000+10000), 55, 655); 
+    ctx.globalAlpha = 1.0;
+    
+    const link = document.createElement('a'); 
+    link.download = `Obsidian_Mastery_${studentName}.png`; 
+    link.href = canvas.toDataURL('image/png'); 
+    link.click();
+}
+</script>
+</body>
+</html>
